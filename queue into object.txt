@@ -1,0 +1,87 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Random;
+
+class Main{
+
+
+    public static void main(String[] args) {
+
+    Scanner sc= new Scanner(System.in);
+
+    int opt;
+
+    Student stdt= new Student("Sophia", 1);
+    Student stdt2= new Student("Amelia", 2);
+    Student stdt3= new Student("Karxlina", 4);
+    Student stdt4= new Student("Rachel", 3);
+
+    Queue<Student> stdtQ= new LinkedList<Student>();
+
+    stdtQ.add(stdt);
+    stdtQ.add(stdt2);
+    stdtQ.add(stdt3);
+    stdtQ.add(stdt4);
+
+    for(Student s : stdtQ){
+        System.out.println(s.getName() + " " + s.getTnum());
+    }
+
+    System.out.println("Please choose an option. ");
+    System.out.println("To insert new student, enter 1.");
+
+    opt= sc.nextInt();
+    sc.nextLine();
+    if(opt==1){
+        //stdtQ.add(Student(sc.hasNext(), sc.nextInt())); /*this doesn't work of course*/
+        stdtQ.add(new Student(sc.nextLine(), sc.nextInt()));
+    }
+    
+      for(Student s : stdtQ){
+        System.out.println(s.getName() + " " + s.getTnum());
+    }
+      
+    }
+    
+    
+}
+
+
+
+class Student {
+    
+    private String name;
+    private int  tnum;
+
+public Student(String name, int tnum){
+    this.name=name;
+    this.tnum=tnum;
+}
+
+public String getName() {
+    return name;
+}
+
+
+public void setName(String name) {
+    this.name = name;
+}
+
+
+public int getTnum() {
+    return tnum;
+}
+
+
+public void setTnum(int tnum) {
+    this.tnum = tnum;
+}
+
+
+public String toString(){
+    return "Student name: "+ name+ "  Token num: "+tnum;
+    }
+
+}
